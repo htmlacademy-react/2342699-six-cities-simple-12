@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов (простой)»
 
 * Студент: [Дарья Романова](https://up.htmlacademy.ru/react/12/user/2342699).
-* Наставник: `Неизвестно`.
+* Наставник: Артем Мошкин.
 
 <a href="https://htmlacademy.ru/intensive/react"><img align="left" width="50" height="50" title="HTML Academy" src="https://up.htmlacademy.ru/static/img/intensive/react/logo-for-github.png"></a>
 
