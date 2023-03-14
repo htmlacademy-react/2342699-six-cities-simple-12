@@ -1,11 +1,14 @@
-import Card from "../../components/card/Card";
+import { Link } from 'react-router-dom';
+import OfferList from '../../components/offerList/offerList';
+import { OfferType } from '../../mocks/offers';
 
 
 type MainProps = {
-    offersQuantity: number;
+  offersQuantity: number;
+  offers: OfferType[];
 }
 
-function Main({offersQuantity}: MainProps): JSX.Element {
+function Main({ offersQuantity, offers }: MainProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <div>
@@ -16,9 +19,9 @@ function Main({offersQuantity}: MainProps): JSX.Element {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active">
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
-              </a>
+              <Link to='/' className="header__logo-link header__logo-link--active">
+                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -29,9 +32,9 @@ function Main({offersQuantity}: MainProps): JSX.Element {
                   </div>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="#">
+                  <Link className="header__nav-link" to={'/login'}>
                     <span className="header__signout">Sign out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -85,7 +88,7 @@ function Main({offersQuantity}: MainProps): JSX.Element {
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
-                Popular
+                  Popular
                   <svg className="places__sorting-arrow" width="7" height="4">
                     <use xlinkHref="#icon-arrow-select"></use>
                   </svg>
@@ -99,11 +102,7 @@ function Main({offersQuantity}: MainProps): JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
 
-                <Card image="img/apartment-01.jpg"/>
-                <Card image="img/apartment-02.jpg"/>
-                <Card image="img/apartment-03.jpg"/>
-                <Card />
-                <Card />
+                <OfferList offers={offers} />
 
               </div>
             </section>
@@ -114,6 +113,7 @@ function Main({offersQuantity}: MainProps): JSX.Element {
         </div>
       </main>
     </div>
-  );}
+  );
+}
 
 export default Main;
