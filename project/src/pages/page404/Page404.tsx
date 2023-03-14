@@ -35,7 +35,7 @@ function Page404(): JSX.Element {
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-          <section className="locations container">
+        <section className="locations container">
           <h1>Page 404</h1>
           <p>Что ищешь ты в стране далекой?</p>
         </section>
