@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Map from '../../components/map/Map';
 import OfferList from '../../components/offerList/offerList';
 import { OfferType } from '../../mocks/offers';
+import {City, Points, Point} from '../../types/types';
+import { CITY, POINTS } from '../../mocks/points';
 
 
 type MainProps = {
@@ -9,6 +13,17 @@ type MainProps = {
 }
 
 function Main({ offersQuantity, offers }: MainProps): JSX.Element {
+  const [selectedPoint, setSelectedPoint] = useState<Point | undefined>(
+    undefined
+  );
+ 
+  const onListItemHover = (listItemName: string) => {
+    const currentPoint = POINTS.find((point) => point.title === listItemName);
+
+    setSelectedPoint(currentPoint);
+  };
+
+
   return (
     <div className="page page--gray page--main">
       <div>
@@ -102,12 +117,17 @@ function Main({ offersQuantity, offers }: MainProps): JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
 
-                <OfferList offers={offers} />
+                <OfferList offers={offers} onListItemHover={onListItemHover}/>
 
               </div>
             </section>
+
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+
+              <Map city={CITY} points={POINTS} selectedPoint={selectedPoint}/>
+
+              </section>
             </div>
           </div>
         </div>
