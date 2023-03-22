@@ -1,17 +1,21 @@
+import {MouseEvent} from 'react';
 import { OfferType } from '../../mocks/offers';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 type CardProps = {
     offer: OfferType;
+    onListItemHover: (listItemName: string) => void;
 }
 
-function Card({ offer }: CardProps): JSX.Element {
+function Card({ offer, onListItemHover }: CardProps): JSX.Element {
 
   const [isActive, setIsActive] = useState(false);
 
-  function handleMouseEnter () {
+  function handleMouseEnter (event: MouseEvent<HTMLLIElement>) {
+    event.preventDefault();
     setIsActive(true);
+    onListItemHover(offer.id);
   }
 
   function handleMouseLeave () {
