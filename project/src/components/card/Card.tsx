@@ -13,19 +13,14 @@ function Card({ offer, onListItemHover }: CardProps): JSX.Element {
   const [isActive, setIsActive] = useState(false);
 
   function handleMouseEnter (event: MouseEvent<HTMLLIElement>) {
+    event.preventDefault();
     setIsActive(true);
-    listItemHoverHandler(event);
+    onListItemHover(offer.id);
   }
 
   function handleMouseLeave () {
     setIsActive(false);
   }
-
-  function listItemHoverHandler (event: MouseEvent<HTMLLIElement>) {
-    event.preventDefault();
-    onListItemHover(event.currentTarget.innerText);
-  };
-
 
   return (
     <article className="cities__card place-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

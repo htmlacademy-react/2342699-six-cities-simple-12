@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Map from '../../components/map/Map';
 import OfferList from '../../components/offerList/offerList';
 import { OfferType } from '../../mocks/offers';
-import {City, Points, Point} from '../../types/types';
+import { Point } from '../../types/types';
 import { CITY, POINTS } from '../../mocks/points';
 
 
@@ -17,9 +17,8 @@ function Main({ offersQuantity, offers }: MainProps): JSX.Element {
     undefined
   );
  
-  const onListItemHover = (listItemName: string) => {
-    const currentPoint = POINTS.find((point) => point.title === listItemName);
-
+  const onListItemHover = (listItemId: string) => {
+    const currentPoint = POINTS.find((point) => point.id === listItemId);
     setSelectedPoint(currentPoint);
   };
 
