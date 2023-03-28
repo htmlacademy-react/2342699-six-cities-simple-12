@@ -14,7 +14,7 @@ function CityList(): JSX.Element {
 
     function renderList() {
         return cities.map ((city)=> (
-            <li className="locations__item">
+            <li key={city} className="locations__item">
                 <a className="locations__item-link tabs__item" href="#" onClick={(e)=>{handleClick(e, city)}}>
                   <span>{city}</span>
                 </a>
